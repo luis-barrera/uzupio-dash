@@ -10,13 +10,13 @@ from whitenoise import WhiteNoise
 
 app = Dash(__name__)
 
-server = app.server
-server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
+#server = app.server
+#server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
 
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
-df = pd.read_csv("uzupio.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/luis-barrera/uzupio-dash/master/uzupio.csv")
 # df = df.iloc[::-1]
 
 fig = px.bar(df,
