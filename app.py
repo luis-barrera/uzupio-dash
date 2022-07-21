@@ -5,8 +5,8 @@ from dash import Dash, html, dcc
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-#import os
-#from whitenoise import WhiteNoise
+import os
+from whitenoise import WhiteNoise
 
 app = Dash(__name__)
 
