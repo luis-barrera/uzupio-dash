@@ -11,7 +11,7 @@ from whitenoise import WhiteNoise
 app = Dash(__name__)
 
 server = app.server
-server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
+#server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
 
 
 # assume you have a "long-form" data frame
