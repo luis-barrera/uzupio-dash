@@ -3,10 +3,10 @@
 
 from dash import Dash, html, dcc
 import plotly.express as px
-import plotly.graph_objects as go
+# import plotly.graph_objects as go
 import pandas as pd
-import os
-from whitenoise import WhiteNoise
+# import os
+# from whitenoise import WhiteNoise
 
 app = Dash(__name__)
 
@@ -16,7 +16,7 @@ server = app.server
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
-df = pd.read_csv("https://raw.githubusercontent.com/luis-barrera/uzupio-dash/master/uzupio.csv")
+df = pd.read_csv("https://storage.googleapis.com/small-projects-luis-barrera/uzupio.csv")
 # df = df.iloc[::-1]
 
 fig = px.bar(df,
