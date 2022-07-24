@@ -16,15 +16,24 @@ server = app.server
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
-df = pd.read_csv("https://storage.googleapis.com/small-projects-luis-barrera/uzupio.csv")
-df = df.iloc[::-1]
+# df = pd.read_csv("https://storage.googleapis.com/small-projects-luis-barrera/uzupio.csv")
+df = pd.read_csv("uzupio.csv")
+# df = df.iloc[::-1]
 
 fig = px.bar(df,
-             y = "Dictamen",
-             x = ["Adhieren", "No se Adhieren", "Abstienen"],
-             # text = "Dictamen",
-             height = 2000,
+             x = "Dictamen",
+             y = ["Adhieren", "No se Adhieren", "Abstienen"],
+             height = 1000,
              title = "Votación de la Constitución de la República de Uzupio")
+
+fig.update_yaxes(title_text = "Votantes")
+# fig.update_yaxes(showticklabels = True)
+fig.update_xaxes(tickangle = -90,
+                 showticklabels = True,
+                 # ticklabelmode = "period",
+                 ticklabelposition = "outside right",
+                 tickprefix = "      ",
+                 ticklabeloverflow = "allow")
 
 fig.update_layout(legend=dict(
     yanchor="top",
@@ -33,10 +42,8 @@ fig.update_layout(legend=dict(
     x=0.5
 ))
 
-fig.update_xaxes(title_text = "Votantes")
-fig.update_yaxes(showticklabels = False)
-
-config = {"responsive": True}
+# config = {"responsive": True}
+config = {}
 
 app.layout = html.Div(children=[
     html.H1(children='Uzupio'),
